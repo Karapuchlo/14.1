@@ -1,21 +1,23 @@
 class Category:
-    _total_categories = 0
-    _total_products = 0
+    _category_count = 0
+    _products_count = 0
 
-    def __init__(self, name, description):
+    def __init__(self, name, description, products=None):
         self.name = name
         self.description = description
-        self.products = []
-        Category._total_categories += 1
+        self.products = products or []
+        Category._category_count += 1
+        Category._products_count += len(self.products)
 
     def add_product(self, product):
         self.products.append(product)
-        Category._total_products += 1
+        Category._products_count += 1
+
 
     @property
-    def total_categories(self):
-        return Category._total_categories
+    def category_count(self):
+        return Category._category_count
 
     @property
-    def total_products(self):
-        return Category._total_products
+    def product_count(self):
+        return Category._products_count
