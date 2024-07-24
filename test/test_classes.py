@@ -20,10 +20,10 @@ def test_category_initialization(category):
     assert category.name == "Test Category"
     assert category.description == "This is a test category"
     assert category.products == []
-    assert category.total_categories == 1
-    assert category.total_products == 0
+    assert category.category_count == 1
+    assert category.product_count == 0
 
 def test_add_product_to_category(category, product):
     category.add_product(product)
     assert len(category.products) == 1
-    assert category.total_products == 1
+    assert category.product_count == 1
